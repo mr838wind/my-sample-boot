@@ -1,6 +1,6 @@
 ### user custom ###
-/bin/
-/logs/
+bin/
+logs/
 
 ### .gradle ###
 .gradle
