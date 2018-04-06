@@ -9,6 +9,13 @@ import org.springframework.stereotype.Service;
 public class SampleService {
 
 	@Autowired
+	SampleMapper sampleMapper;
+	
+	public List<SampleVO> selectSampleListByMapper() { 
+		return sampleMapper.selectSampleList();
+	}
+	
+	@Autowired
 	SampleDAO sampleDAO;
 	
 	public List<SampleVO> selectSampleList() {

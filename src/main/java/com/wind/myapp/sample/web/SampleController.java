@@ -37,9 +37,25 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/list")
-	public ModelAndView main( HttpServletRequest req ) {
+	public ModelAndView selectSampleList( HttpServletRequest req ) {
 		
 		List<SampleVO> list = sampleService.selectSampleList();
+		
+		Map<String,Object> resultMap = new HashMap<>();
+		resultMap.put("result", list);
+	    
+		return new ModelAndView("/sample/list", resultMap);
+	}
+	
+	/**
+	 * 
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/sample/listByMapper")
+	public ModelAndView selectSampleListByMapper( HttpServletRequest req ) {
+		
+		List<SampleVO> list = sampleService.selectSampleListByMapper();
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
