@@ -1,4 +1,4 @@
-package com.wind.myapp.sample;
+package com.wind.myapp.sample.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

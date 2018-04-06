@@ -1,4 +1,4 @@
-package com.wind.myapp.sample;
+package com.wind.myapp.sample.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

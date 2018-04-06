@@ -1,4 +1,4 @@
-package com.wind.myapp.profiletest;
+package com.wind.myapp.framework.profiletest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;

@@ -1,4 +1,4 @@
-package com.wind.myapp.profiletest;
+package com.wind.myapp.framework.profiletest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
