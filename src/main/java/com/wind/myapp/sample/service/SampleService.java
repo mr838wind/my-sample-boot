@@ -25,4 +25,9 @@ public class SampleService {
 	public List<SampleVO> selectSampleListForScript(String[] ids) { 
 		return sampleMapper.selectSampleListForScript(ids);
 	}
+	
+	public List<SampleVO> selectSampleListForSelectProvider(String name) { 
+		return sampleMapper.selectSampleListForSelectProvider(name);
+	}
+	
 }

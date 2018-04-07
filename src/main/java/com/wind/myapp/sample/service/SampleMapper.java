@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -17,7 +19,9 @@ public interface SampleMapper {
 	@Select(" select * from tb_sample where id = #{id} ")
 	public SampleVO selectSampleById(@Param("id") String id);
 	
-	// include example
+	
+	
+	//=== include example
 	public static final String INCLUDE_WHERE =
 			 "	WHERE id IN									" 
 			+"		<foreach item='item' collection='ids'	"
@@ -26,7 +30,7 @@ public interface SampleMapper {
 			+"	</foreach>									"
 	;
 	
-	// xml script version
+	//=== xml script version
 	@Select({"<script>"
 	,"	SELECT *									" 
 	,"	FROM tb_sample								"
@@ -34,7 +38,25 @@ public interface SampleMapper {
     ,"</script>"})
 	public List<SampleVO> selectSampleListForScript(@Param("ids") String[] ids);
 	
-	//selectProvider ...
-	//...
+	
+	
+	//=== selectProvider ...
+	@SelectProvider(type = SqlBuilder.class, method = "build")
+	List<SampleVO> selectSampleListForSelectProvider(String name);
+
+	class SqlBuilder {
+	  public static String build(final String name) {
+	    return new SQL(){{
+	      SELECT("*");
+	      FROM("tb_sample");
+	      if (name != null) {
+	        WHERE("name like #{value} || '%'");
+	      }
+	      ORDER_BY("id");
+	    }}.toString();
+	  }
+	}
+	
+	
 	
 }

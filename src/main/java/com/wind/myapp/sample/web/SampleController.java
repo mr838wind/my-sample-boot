@@ -40,6 +40,7 @@ public class SampleController {
 	public ModelAndView selectSampleList( HttpServletRequest req ) {
 		
 		//List<SampleVO> list = sampleService.selectSampleList();
+		//List<SampleVO> list = sampleService.selectSampleListForSelectProvider("");
 		List<SampleVO> list = sampleService.selectSampleListForScript(new String[] {"111","222"});
 		
 		Map<String,Object> resultMap = new HashMap<>();
