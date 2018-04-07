@@ -11,9 +11,10 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface SampleMapper {
 
-	//public List<SampleVO> selectSampleList();
+	@Select(" select * from tb_sample ")
+	public List<SampleVO> selectSampleList();
 	
-	@Select("select * from tb_sample")
-	List<SampleVO> selectSampleList();
+	@Select(" select * from tb_sample where id = #{id} ")
+	public SampleVO selectSampleById(@Param("id") String id);
 	
 }

@@ -11,16 +11,12 @@ public class SampleService {
 	@Autowired
 	SampleMapper sampleMapper;
 	
-	public List<SampleVO> selectSampleListByMapper() { 
+	public List<SampleVO> selectSampleList() { 
 		return sampleMapper.selectSampleList();
 	}
 	
-	@Autowired
-	SampleDAO sampleDAO;
-	
-	public List<SampleVO> selectSampleList() {
-		return sampleDAO.selectSampleList();
+	public SampleVO selectSampleById(String id) { 
+		return sampleMapper.selectSampleById(id);
 	}
-	
 	
 }

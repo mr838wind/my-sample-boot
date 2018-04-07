@@ -52,39 +52,11 @@ public class SampleController {
 	 * @param req
 	 * @return
 	 */
-	@RequestMapping(value = "/sample/listByMapper")
-	public ModelAndView selectSampleListByMapper( HttpServletRequest req ) {
-		
-		List<SampleVO> list = sampleService.selectSampleListByMapper();
-		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
-	    
-		return new ModelAndView("/sample/list", resultMap);
-	}
-	
-	/**
-	 * 
-	 * @param req
-	 * @return
-	 */
 	@RequestMapping(value = "/sample/detail/{id}")
 	public ModelAndView detail( HttpServletRequest req,
 			@PathVariable(name = "id") String id ) {
 		
-		List<SampleVO> list = sampleService.selectSampleList();
-		
-		// 
-		SampleVO result = new SampleVO();
-		if(list != null) {
-			for(SampleVO item : list) {
-				if(item.getId().equals(id)) {
-					result = item;
-					break;
-				}
-			}
-		}
-		
+		SampleVO result = sampleService.selectSampleById(id);
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", result);
