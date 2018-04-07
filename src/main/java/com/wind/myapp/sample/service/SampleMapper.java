@@ -17,4 +17,19 @@ public interface SampleMapper {
 	@Select(" select * from tb_sample where id = #{id} ")
 	public SampleVO selectSampleById(@Param("id") String id);
 	
+	// xml script version
+	@Select({"<script>",
+	"	SELECT *									", 
+	"	FROM tb_sample								",
+	"	WHERE id IN									", 
+	"		<foreach item='item' collection='ids'	",
+	"			open='(' separator=',' close=')'>	",
+	"		#{item}									",
+	"	</foreach>									",
+    "</script>"})
+	public List<SampleVO> selectSampleListForScript(@Param("ids") String[] ids);
+	
+	//selectProvider ...
+	//...
+	
 }

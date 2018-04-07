@@ -39,7 +39,8 @@ public class SampleController {
 	@RequestMapping(value = "/sample/list")
 	public ModelAndView selectSampleList( HttpServletRequest req ) {
 		
-		List<SampleVO> list = sampleService.selectSampleList();
+		//List<SampleVO> list = sampleService.selectSampleList();
+		List<SampleVO> list = sampleService.selectSampleListForScript(new String[] {"111","222"});
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
