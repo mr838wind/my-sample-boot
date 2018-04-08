@@ -23,11 +23,11 @@ public interface SampleMapper {
 	
 	//=== include example
 	public static final String INCLUDE_WHERE =
-			 "	WHERE id IN									" 
-			+"		<foreach item='item' collection='ids'	"
-			+"			open='(' separator=',' close=')'>	"
-			+"		#{item}									"
-			+"	</foreach>									"
+			 "	WHERE id IN										" 
+			+"		<foreach item='item' collection='ids'		"
+			+"				open='(' separator=',' close=')'>	"
+			+"			#{item}									"
+			+"		</foreach>									"
 	;
 	
 	//=== xml script version
