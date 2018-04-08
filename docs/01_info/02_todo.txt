@@ -1,11 +1,11 @@
  ----[doing]----------
- sping boot
- gradle 
- 
-
- ----[todo]---------- 
- ----
+ error code
  paging sample
+
+ 
+ 
+ 
+ ----[todo]---------- 
  ----
  jsp,ajax 방식 
  vue.js 
@@ -13,11 +13,13 @@
  -----
  template 자동생성
  -----
- mvn tomcat7 redeploy debug
- -----
  dao사용 기타방식: mybatis, other..
 
 
 
+
+
  ----[done]----------
+ sping boot
+ gradle 
  spring-test
