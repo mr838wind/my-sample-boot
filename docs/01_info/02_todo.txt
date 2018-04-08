@@ -1,0 +1,23 @@
+ ----[doing]----------
+ sping boot
+ gradle 
+ 
+
+ ----[todo]---------- 
+ ----
+ paging sample
+ ----
+ jsp,ajax 방식 
+ vue.js 
+ angular
+ -----
+ template 자동생성
+ -----
+ mvn tomcat7 redeploy debug
+ -----
+ dao사용 기타방식: mybatis, other..
+
+
+
+ ----[done]----------
+ spring-test
