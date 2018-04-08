@@ -33,7 +33,7 @@ public class ProfileTestController {
 	}
 
 	@Component
-	@Profile("dev")
+	@Profile({"dev"})
 	public static class SayHelloDev implements SayHello {
 		public String sayHello(String msg) {
 			String result = ">>> [dev] say hello >> " + msg;
@@ -47,6 +47,16 @@ public class ProfileTestController {
 	public static class SayHelloProd implements SayHello {
 		public String sayHello(String msg) {
 			String result = ">>> [prod] say hello >> " + msg;
+			log.debug(result); 
+			return result;
+		}
+	}
+	
+	@Component
+	@Profile({"test"})
+	public static class SayHelloTest implements SayHello {
+		public String sayHello(String msg) {
+			String result = ">>> [test] say hello >> " + msg;
 			log.debug(result); 
 			return result;
 		}
