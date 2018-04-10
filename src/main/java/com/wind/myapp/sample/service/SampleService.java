@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class SampleService {
 
 	@Autowired
-	SampleMapper sampleMapper;
+	SampleDAO sampleMapper;
 	
 	public List<SampleVO> selectSampleList() { 
 		return sampleMapper.selectSampleList();
@@ -24,10 +24,6 @@ public class SampleService {
 	
 	public List<SampleVO> selectSampleListForScript(String[] ids) { 
 		return sampleMapper.selectSampleListForScript(ids);
-	}
-	
-	public List<SampleVO> selectSampleListForSelectProvider(String name) { 
-		return sampleMapper.selectSampleListForSelectProvider(name);
 	}
 	
 }
