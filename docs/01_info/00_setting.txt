@@ -3,7 +3,9 @@
 sts: eclipse spring version
 https://spring.io/tools/sts/all
 
-plugin: gradle buildship
+plugin: 
+	gradle buildship
+	mybatis generator
 
 
 
@@ -17,5 +19,8 @@ https://ranxing.wordpress.com/2016/12/13/add-zip-into-git-bash-on-windows/
 sdkman: The Software Development Kit Manager
 http://sdkman.io/
 ----------- //shell setting ------------------
+
+
+
 
 
