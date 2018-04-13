@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.wind.myapp.sample.service.SampleDAO">
+<mapper namespace="com.wind.myapp.sample.service.SampleMapper">
 
-	<select id="selectSampleList"  resultType="com.wind.myapp.sample.service.SampleVO" >
-		select * from tb_sample
-	</select>
-	
-	<select id="selectSampleById" parameterType="string"  resultType="com.wind.myapp.sample.service.SampleVO" >
-		select * from tb_sample where id = #{id}
-	</select>
-	
-	<select id="selectSampleListForScript" parameterType="list"  resultType="com.wind.myapp.sample.service.SampleVO" >
-		SELECT *		
-		FROM tb_sample			
-		WHERE id IN							
-			<foreach item="item" collection="ids"	 
-					open="(" separator="," close=")">	
-				#{item}		
-			</foreach>			
+	<select id="selectListBySQL"  resultType="com.wind.myapp.sample.service.SampleVO" >
+		select * from tb_sample where id in ('222','444')
 	</select>
 	
 </mapper>

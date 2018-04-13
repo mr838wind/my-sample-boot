@@ -29,7 +29,7 @@ public class SampleController {
     
     
     @Autowired
-	SampleService sampleService;
+    SampleService sampleService;
     
     /**
 	 * 
@@ -37,11 +37,25 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/list")
-	public ModelAndView selectSampleList( HttpServletRequest req ) {
+	public ModelAndView list( HttpServletRequest req ) {
 		
-		//List<SampleVO> list = sampleService.selectSampleList();
-		//List<SampleVO> list = sampleService.selectSampleListForSelectProvider("");
-		List<SampleVO> list = sampleService.selectSampleListForScript(new String[] {"111","222"});
+		List<SampleVO> list = sampleService.selectList(null);
+		
+		Map<String,Object> resultMap = new HashMap<>();
+		resultMap.put("result", list);
+	    
+		return new ModelAndView("/sample/list", resultMap);
+	}
+	
+	/**
+	 * custom sql 
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/sample/listBySql")
+	public ModelAndView listBySql( HttpServletRequest req ) {
+		
+		List<SampleVO> list = sampleService.selectListBySQL();
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
@@ -58,7 +72,7 @@ public class SampleController {
 	public ModelAndView detail( HttpServletRequest req,
 			@PathVariable(name = "id") String id ) {
 		
-		SampleVO result = sampleService.selectSampleById(id);
+		SampleVO result = sampleService.selectById(id);
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", result);
