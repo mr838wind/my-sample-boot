@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wind.myapp.sample.service.SampleService;
 import com.wind.myapp.sample.service.SampleVO;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 public class SampleController {
 
     @GetMapping("/sample/hello")
@@ -40,6 +44,24 @@ public class SampleController {
 	public ModelAndView list( HttpServletRequest req ) {
 		
 		List<SampleVO> list = sampleService.selectList(null);
+		
+		Map<String,Object> resultMap = new HashMap<>();
+		resultMap.put("result", list);
+	    
+		return new ModelAndView("/sample/list", resultMap);
+	}
+	
+	/**
+	 * paging
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/sample/paging")
+	public ModelAndView paging( HttpServletRequest req ) {
+		
+		Page<SampleVO> page = sampleService.selectPage(new Page<SampleVO>(2, 2));
+		List<SampleVO> list = page.getRecords();
+		log.info(">>>> select paging: {}", list.size()); 
 		
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
