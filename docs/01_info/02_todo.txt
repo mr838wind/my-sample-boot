@@ -1,5 +1,7 @@
  ----[doing]----------
- dao implementation >> mybatis plus:
+ dao implementation >> mybatis plus: 
+ 	>> customize: selectList, selectPage: table 에 없는 field, join해서 가져올때 page
+ 
  refactoring projects >>  controller method location... ,yml
  
  paging sample
