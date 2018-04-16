@@ -42,24 +42,6 @@ public class SampleController {
 	}
 	
 	/**
-	 * paging
-	 * @param req
-	 * @return
-	 */
-	@RequestMapping(value = "/sample/paging")
-	public ModelAndView paging( HttpServletRequest req ) {
-		
-		Page<SampleVO> page = sampleService.selectPage(new Page<SampleVO>(2, 2));
-		List<SampleVO> list = page.getRecords();
-		log.info(">>>> select paging: {}", list.size()); 
-		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
-	    
-		return new ModelAndView("/sample/list", resultMap);
-	}
-	
-	/**
 	 * custom sql 
 	 * @param req
 	 * @return
@@ -74,6 +56,43 @@ public class SampleController {
 	    
 		return new ModelAndView("/sample/list", resultMap);
 	}
+	
+	/**
+	 * paging
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/sample/paging")
+	public ModelAndView paging( HttpServletRequest req ) {
+		
+		Page<SampleVO> page = sampleService.selectPage(new Page<SampleVO>(1, 2));
+		List<SampleVO> list = page.getRecords();
+		log.info(">>>> select paging: {}", list.size()); 
+		
+		Map<String,Object> resultMap = new HashMap<>();
+		resultMap.put("result", list);
+	    
+		return new ModelAndView("/sample/list", resultMap);
+	}
+	
+	/**
+	 * custom paging
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/sample/pageBySQL")
+	public ModelAndView selectPageBySQL( HttpServletRequest req ) {
+		
+		Page<SampleVO> page = sampleService.selectPageBySQL(new Page<SampleVO>(1, 2));
+		List<SampleVO> list = page.getRecords();
+		log.info(">>>> select paging: {}", list.size()); 
+		
+		Map<String,Object> resultMap = new HashMap<>();
+		resultMap.put("result", list);
+	    
+		return new ModelAndView("/sample/list", resultMap);
+	}
+	
 	
 	/**
 	 * 

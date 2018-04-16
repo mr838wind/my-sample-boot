@@ -7,4 +7,9 @@
 		select * from tb_sample where id in ('222','444')
 	</select>
 	
+	
+	<select id="selectPageBySQL"  resultType="com.wind.myapp.sample.service.SampleVO" >
+		select * from tb_sample where id > '555'
+	</select>
+	
 </mapper>
