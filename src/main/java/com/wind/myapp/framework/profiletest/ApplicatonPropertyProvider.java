@@ -12,7 +12,7 @@ public class ApplicatonPropertyProvider {
 	@Value("${spring.profiles.active}")
 	private String profileActive;
 	
-	@Value("${app.name}")
+	@Value("${spring.application.name}")
 	private String appName;
 	
 }
