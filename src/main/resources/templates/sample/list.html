@@ -15,14 +15,16 @@
 	<table>
 	  <thead>
 	    <tr>
-	      <th >Name</th>
-	      <th >Price</th>
+	      <th >id</th>
+	      <th >name</th>
+	      <th >contents count</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	    <tr  th:each="item: ${result}"   >
-	      <td ><a th:text="${item.id}" th:href="@{'/sample/detail/' + ${item.id}}" >Oranges</a></td>
-	      <td th:text="${item.name}">0.99</td>
+	      <td ><a th:text="${item.id}" th:href="@{'/sample/detail/' + ${item.id}}" >id</a></td>
+	      <td th:text="${item.name}">name</td>
+	      <td th:text="${item.contentsCount}">1</td>
 	    </tr>
 	  </tbody>
 	</table>

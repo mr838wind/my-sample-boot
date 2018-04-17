@@ -4,12 +4,12 @@
 <mapper namespace="com.wind.myapp.sample.service.SampleMapper">
 
 	<select id="selectListBySQL"  resultType="com.wind.myapp.sample.service.SampleVO" >
-		select * from tb_sample where id in ('222','444')
+		select T.*, (select count(*) from tb_contents where fk_sample_id = T.id) as contents_count from tb_sample T
 	</select>
 	
 	
 	<select id="selectPageBySQL"  resultType="com.wind.myapp.sample.service.SampleVO" >
-		select * from tb_sample where id > '555'
+		select T.*, (select count(*) from tb_contents where fk_sample_id = T.id) as contents_count from tb_sample T
 	</select>
 	
 </mapper>
