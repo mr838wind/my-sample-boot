@@ -1,8 +1,9 @@
  ----[doing]---------- 
   view:
- >>jsp mode:
  Thymeleaf ...
 
+
+>>jsp mode: to do search 
  
  
  ----[todo]---------- 
