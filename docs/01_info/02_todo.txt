@@ -14,7 +14,7 @@
  angular
  -----
  
- error code
+ project error code
 
  spring security
  aop
