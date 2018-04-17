@@ -1,4 +1,4 @@
-package com.wind.myapp.config;
+package com.wind.myapp.framework.config;
 
 import java.util.List;
 
