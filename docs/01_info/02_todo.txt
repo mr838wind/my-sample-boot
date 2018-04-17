@@ -1,5 +1,7 @@
  ----[doing]---------- 
- 
+  view:
+ >>jsp mode:
+ Thymeleaf ...
 
  
  
