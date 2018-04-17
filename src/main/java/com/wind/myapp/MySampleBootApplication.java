@@ -16,4 +16,7 @@ public class MySampleBootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MySampleBootApplication.class, args);
 	}
+	
+	
+	
 }
