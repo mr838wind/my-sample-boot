@@ -1,5 +1,5 @@
  ----[doing]---------- 
- error code
+ 
 
  
  
@@ -13,6 +13,12 @@
  vue.js 
  angular
  -----
+ 
+ error code
+
+ spring security
+ aop
+
 
 
 
@@ -24,6 +30,7 @@
  
 
  ----[done]----------
+ custom error page
  refactoring projects >>  controller method location... ,yml(when need)
  dao implementation >> mybatis plus: good
  paging sample
