@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +29,7 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/list")
-	public ModelAndView list( HttpServletRequest req ) {
+	public ModelAndView list() {
 		
 		List<SampleVO> list = sampleService.selectList(null);
 		
@@ -47,7 +45,7 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/listBySql")
-	public ModelAndView listBySql( HttpServletRequest req ) {
+	public ModelAndView listBySql() {
 		
 		List<SampleVO> list = sampleService.selectListBySQL();
 		
@@ -58,39 +56,37 @@ public class SampleController {
 	}
 	
 	/**
-	 * paging
+	 * paging: 
+	 * param: ?size=1&current=1
 	 * @param req
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/paging")
-	public ModelAndView paging( HttpServletRequest req ) {
+	public ModelAndView paging(Page<SampleVO> page) {
 		
-		Page<SampleVO> page = sampleService.selectPage(new Page<SampleVO>(1, 2));
-		List<SampleVO> list = page.getRecords();
-		log.info(">>>> select paging: {}", list.size()); 
+		Page<SampleVO> pageResult = sampleService.selectPage(page);
 		
 		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
+		resultMap.put("result", pageResult);
 	    
-		return new ModelAndView("/sample/list", resultMap);
+		return new ModelAndView("/sample/paging", resultMap);
 	}
 	
 	/**
 	 * custom paging
+	 * param: ?size=1&current=1
 	 * @param req
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/pageBySQL")
-	public ModelAndView selectPageBySQL( HttpServletRequest req ) {
+	public ModelAndView selectPageBySQL(Page<SampleVO> page) {
 		
-		Page<SampleVO> page = sampleService.selectPageBySQL(new Page<SampleVO>(1, 2));
-		List<SampleVO> list = page.getRecords();
-		log.info(">>>> select paging: {}", list.size()); 
+		Page<SampleVO> pageResult = sampleService.selectPageBySQL(page);
 		
 		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
+		resultMap.put("result", pageResult);
 	    
-		return new ModelAndView("/sample/list", resultMap);
+		return new ModelAndView("/sample/paging", resultMap);
 	}
 	
 	
@@ -100,7 +96,7 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/detail/{id}")
-	public ModelAndView detail( HttpServletRequest req,
+	public ModelAndView detail(
 			@PathVariable(name = "id") String id ) {
 		
 		SampleVO result = sampleService.selectById(id);
