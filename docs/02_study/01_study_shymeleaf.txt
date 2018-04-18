@@ -1,0 +1,45 @@
+
+--------------
+>> natural template :
+html: 	 th:text / <!--/*/ [[inline]] /*/--> 
+		,<!--/*/ <th:block >multiline</th:block> /*/-->
+js: 	 var a = /* [[${inline}]] */ val;
+		,/*[+ [# th:if="${user.admin}" ] multiline [/] +]*/
+
+
+--------------
+th:text / th:utext
+th:href="@{/subscribe}"
+th:each
+th:if
+th:switch / th:case
+----
+th:remove="all" / th:remove="all-but-first"
+//local variables
+th:object
+th:with="firstPer=${persons[0]}" 
+th:block
+-------
+th:fragment / th:insert,th:replace / ~{templatename::selector} / ~{templatename::cssSelector}
+th:fragment="frag (onevar,twovar)" / th:replace="::frag (${value1},${value2})"
+--------------
+
+>> comment
+<!-- User info follows --> / <!--/*--> ...  <!--*/-->
+<!--/*/ <th:block th:each="user : ${users}"> /*/--> :: execute 
+-------
+>>Inlining
+[[...]] / [(...)] === th:text / th:utext
+th:inline="none"
+th:inline="text"
+th:inline="javascript"
+-------
+>>Textual template modes
+[# th:each="item : ${items}" ]
+  - [(${item})]
+[/]
+--------------
+
+cache setting:
+spring.thymeleaf.cache=false
+--------------
