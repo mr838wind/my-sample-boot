@@ -36,7 +36,7 @@ public class SampleController {
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
 	    
-		return new ModelAndView("/sample/list", resultMap);
+		return new ModelAndView("sample/list", resultMap);
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class SampleController {
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", list);
 	    
-		return new ModelAndView("/sample/list", resultMap);
+		return new ModelAndView("sample/list", resultMap);
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class SampleController {
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", pageResult);
 	    
-		return new ModelAndView("/sample/paging", resultMap);
+		return new ModelAndView("sample/paging", resultMap);
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class SampleController {
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", pageResult);
 	    
-		return new ModelAndView("/sample/paging", resultMap);
+		return new ModelAndView("sample/paging", resultMap);
 	}
 	
 	
@@ -104,7 +104,7 @@ public class SampleController {
 		Map<String,Object> resultMap = new HashMap<>();
 		resultMap.put("result", result);
 	    
-		return new ModelAndView("/sample/detail", resultMap);
+		return new ModelAndView("sample/detail", resultMap);
 	}
     
     

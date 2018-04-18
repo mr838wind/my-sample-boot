@@ -1,0 +1,4 @@
+1. ModelAndView:view name shouldn't start with '/': 
+	e.g.: "sample/list", no "/sample/list"
+	it's ok in eclipse, but when runnig with java -jar it cannot find view
+
