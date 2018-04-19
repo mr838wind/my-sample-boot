@@ -1,14 +1,12 @@
 package com.wind.myapp.sample.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wind.myapp.sample.service.SampleService;
@@ -29,14 +27,13 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/list")
-	public ModelAndView list() {
+	public String list(Model model) {
 		
 		List<SampleVO> list = sampleService.selectList(null);
 		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
+		model.addAttribute("result", list);
 	    
-		return new ModelAndView("sample/list", resultMap);
+		return "sample/list";
 	}
 	
 	/**
@@ -45,14 +42,13 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/listBySql")
-	public ModelAndView listBySql() {
+	public String listBySql(Model model) {
 		
 		List<SampleVO> list = sampleService.selectListBySQL();
 		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", list);
+		model.addAttribute("result", list);
 	    
-		return new ModelAndView("sample/list", resultMap);
+		return "sample/list";
 	}
 	
 	/**
@@ -62,14 +58,13 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/paging")
-	public ModelAndView paging(Page<SampleVO> page) {
+	public String paging(Model model, Page<SampleVO> page) {
 		
 		Page<SampleVO> pageResult = sampleService.selectPage(page);
 		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", pageResult);
+		model.addAttribute("result", pageResult);
 	    
-		return new ModelAndView("sample/paging", resultMap);
+		return "sample/paging";
 	}
 	
 	/**
@@ -79,14 +74,13 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/pageBySQL")
-	public ModelAndView selectPageBySQL(Page<SampleVO> page) {
+	public String selectPageBySQL(Model model, Page<SampleVO> page) {
 		
 		Page<SampleVO> pageResult = sampleService.selectPageBySQL(page);
 		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", pageResult);
+		model.addAttribute("result", pageResult);
 	    
-		return new ModelAndView("sample/paging", resultMap);
+		return "sample/paging";
 	}
 	
 	
@@ -96,15 +90,14 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/detail/{id}")
-	public ModelAndView detail(
+	public String detail(Model model, 
 			@PathVariable(name = "id") String id ) {
 		
 		SampleVO result = sampleService.selectById(id);
 		
-		Map<String,Object> resultMap = new HashMap<>();
-		resultMap.put("result", result);
+		model.addAttribute("result", result);
 	    
-		return new ModelAndView("sample/detail", resultMap);
+		return "sample/detail";
 	}
     
     
