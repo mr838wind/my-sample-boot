@@ -21,3 +21,4 @@ spring.mvc.view.suffix: .jsp
 	>> deployment assembly : add src/main/webapp -- /
 	>> web project setting : context-root -- /
 
+

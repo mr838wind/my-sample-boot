@@ -26,8 +26,7 @@ repositories {
 
 
 dependencies {
-	
-	
+
 	// ### db ###
 	// mysql
 	compile('mysql:mysql-connector-java:5.1.6')
@@ -61,9 +60,8 @@ dependencies {
 	
 	
 	//### test
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test')	
 	
-	
-	
+
 	
 }
