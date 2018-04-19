@@ -8,14 +8,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * configuration : .../framework/config/*
- * @author windfall
+ * @author wind
  *
  */
 @SpringBootApplication
 @EnableTransactionManagement(proxyTargetClass=true) // we have no service interface here: so set proxyTargetClass=true
 public class MySampleBootApplication extends SpringBootServletInitializer {
 
-	// web-jsp
+	// deployable 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(MySampleBootApplication.class);
