@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
 group = 'com.wind'
 version = '0.0.1-SNAPSHOT'
@@ -40,6 +41,11 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('com.h2database:h2')
 	runtime('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16')
-	compileOnly('org.projectlombok:lombok')
+	compile('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+	//### war ###
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+	providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
+	
 }
