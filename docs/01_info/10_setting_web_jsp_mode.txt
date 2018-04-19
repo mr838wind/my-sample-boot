@@ -1,0 +1,22 @@
+0. reference:
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-samples/spring-boot-sample-web-jsp/pom.xml
+
+1. build.gradle
+apply plugin: 'war'
+compile('javax.servlet:jstl')
+providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
+
+
+2. application.properties
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp
+
+3. MySampleBootApplication extends SpringBootServletInitializer
+4. jsp location: 
+/src/main/webapp/WEB-INF/jsp/
+
+
+
+
