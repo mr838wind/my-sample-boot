@@ -17,6 +17,7 @@ spring.mvc.view.suffix: .jsp
 4. jsp location: 
 /src/main/webapp/WEB-INF/jsp/
 
-
-
+5. project >> setting   
+	>> deployment assembly : add src/main/webapp -- /
+	>> web project setting : context-root -- /
 

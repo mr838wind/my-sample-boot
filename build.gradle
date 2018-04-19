@@ -26,8 +26,9 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('javax.servlet:jstl')
 	
 	//### mysql
 	compile('mysql:mysql-connector-java:5.1.6')
