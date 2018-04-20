@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wind.myapp.sample.service.SampleService;
@@ -27,13 +27,14 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/list")
-	public String list(Model model) {
+	public ModelAndView list(ModelAndView mv) {
+		mv.setViewName("sample/list");
 		
 		List<SampleVO> list = sampleService.selectList(null);
 		
-		model.addAttribute("result", list);
-	    
-		return "sample/list";
+		mv.addObject("result", list);
+		
+		return mv;
 	}
 	
 	/**
@@ -42,13 +43,14 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/listBySql")
-	public String listBySql(Model model) {
+	public ModelAndView listBySql(ModelAndView mv) {
+		mv.setViewName("sample/list");
 		
 		List<SampleVO> list = sampleService.selectListBySQL();
 		
-		model.addAttribute("result", list);
+		mv.addObject("result", list);
 	    
-		return "sample/list";
+		return mv;
 	}
 	
 	/**
@@ -58,13 +60,14 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/paging")
-	public String paging(Model model, Page<SampleVO> page) {
+	public ModelAndView paging(ModelAndView mv, Page<SampleVO> page) {
+		mv.setViewName("sample/paging");
 		
 		Page<SampleVO> pageResult = sampleService.selectPage(page);
 		
-		model.addAttribute("result", pageResult);
+		mv.addObject("result", pageResult);
 	    
-		return "sample/paging";
+		return mv;
 	}
 	
 	/**
@@ -74,30 +77,32 @@ public class SampleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/pageBySQL")
-	public String selectPageBySQL(Model model, Page<SampleVO> page) {
+	public ModelAndView selectPageBySQL(ModelAndView mv, Page<SampleVO> page) {
+		mv.setViewName("sample/paging");
 		
 		Page<SampleVO> pageResult = sampleService.selectPageBySQL(page);
 		
-		model.addAttribute("result", pageResult);
+		mv.addObject("result", pageResult);
 	    
-		return "sample/paging";
+		return mv;
 	}
 	
 	
 	/**
-	 * 
+	 * detail
 	 * @param req
 	 * @return
 	 */
 	@RequestMapping(value = "/sample/detail/{id}")
-	public String detail(Model model, 
+	public ModelAndView detail(ModelAndView mv, 
 			@PathVariable(name = "id") String id ) {
+		mv.setViewName("sample/detail");
 		
 		SampleVO result = sampleService.selectById(id);
 		
-		model.addAttribute("result", result);
+		mv.addObject("result", result);
 	    
-		return "sample/detail";
+		return mv;
 	}
     
     

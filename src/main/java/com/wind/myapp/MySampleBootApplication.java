@@ -25,17 +25,6 @@ public class MySampleBootApplication extends SpringBootServletInitializer {
 		return application.sources(MySampleBootApplication.class);
 	}
 	
-	// fix “Circular view path” exception
-	@Bean
-	public ThymeleafViewResolver viewResolver(ISpringTemplateEngine templateEngine) {
-	    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-	    viewResolver.setViewClass(ThymeleafView.class); 
-	    viewResolver.setTemplateEngine(templateEngine);
-	    viewResolver.setCharacterEncoding("UTF-8");
-	    viewResolver.setOrder(0);//HERE!!
-	    return viewResolver;
-	}
-	
 	public static void main(String[] args) {
 		SpringApplication.run(MySampleBootApplication.class, args);
 	}
