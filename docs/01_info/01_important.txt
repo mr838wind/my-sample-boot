@@ -2,3 +2,6 @@
 	e.g.: "sample/list", no "/sample/list"
 	it's ok in eclipse, but when runnig with java -jar it cannot find view
 
+2. debugging in eclipse :
+	use debug mode
+	turn on project >> build automatically  when developing web page.
