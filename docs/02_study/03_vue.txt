@@ -24,6 +24,8 @@ pseudo module:
 >> base component support 
 
 
+>> advanced
+	>> use webpack -- find simple configuration
 
 
 
