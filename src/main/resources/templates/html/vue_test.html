@@ -4,77 +4,17 @@
 <head>
 	<title>my-sample-boot</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<!-- development version, includes helpful console warnings -->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-	<!-- production version, optimized for size and speed 
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	-->
 
 	<style>
 		.division {
 			margin:5px;
 		}
 	</style>
-
-	<script>
-		window.onload = function () {
-
-			// Define a new component called button-counter
-			Vue.component('button-counter', {
-				props: ['title'],
-				data: function () {
-					return {
-					count: 0
-					}
-				},
-				template: 
-				`
-				<div>
-					<h3>{{title}}</h3>
-					<button v-on:click=" count++ ">
-						You clicked me {{ count }} times.
-					</button>
-					<br/>
-					<button v-on:click=" $emit('cs-say-hi', title) ">
-						hi
-					</button>
-				</div>
-				`
-			})
-			
-			// app
-			var app = new Vue({
-				el: '#app',
-				data: {
-					message: 'Hello Vue !!!',
-					viewFlag: true,
-					items: [{
-						text: 'pear'
-					}, {
-						text: 'apple'
-					}, {
-						text: 'banana'
-					}]
-				},
-				methods: {
-					sayHello: function(item, index) {
-						alert('hello: ' + index + '--' + item.text);
-					}
-					,onCsSayHi: function(title) {
-						alert( 'hi: title=' + title );
-					}
-				}
-			});
-			
-			//test
-			window.app = app;
-
-		};
-	</script>
 </head>
 
 <body>
+	
+	<!-- container -->
 	<div id="app">
 		
 		<template v-if="viewFlag" >
@@ -99,11 +39,54 @@
 
 		<div class="division" ></div>
 
+		<!-- -->
 		<div >
 			<button-counter title="I'm button." @cs-say-hi="onCsSayHi" ></button-counter>
 		</div>
 
 	</div>
-</body>
 
+	<!-- footer -->
+	<div th:replace="~{html/footer :: copy}" ></div>
+
+
+	<!-- scripts -->
+	<div th:replace="~{html/footer :: scripts(~{::script})}" >
+		
+		<!-- component -->
+		<script src="./comp-button-counter.js"></script>
+		
+		<!-- app -->
+		<script>
+				// app
+				var app = new Vue({
+					el: '#app',
+					data: {
+						message: 'Hello Vue3  !!!',
+						viewFlag: true,
+						items: [{
+							text: 'pear'
+						}, {
+							text: 'apple'
+						}, {
+							text: 'banana'
+						}]
+					},
+					methods: {
+						sayHello: function(item, index) {
+							alert('hello: ' + index + '--' + item.text);
+						}
+						,onCsSayHi: function(title) {
+							alert( 'hi: title=' + title );
+						}
+					}
+				});
+				
+				//test
+				window.app = app;
+		</script>
+
+	</div>
+	
+</body>
 </html>

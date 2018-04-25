@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+    <th:block th:fragment="scripts(customLinks)">
+		<!-- ### load script just befor end of body  ### -->
+
+		<!-- development version, includes helpful console warnings -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<!-- production version, optimized for size and speed 
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		-->
+
+		<th:block th:replace="${customLinks}" ></th:block>
+    </th:block>
+
+
+    <div th:fragment="copy">
+      &copy; 2018 wind 
+    </div>
+</body>
+</html>

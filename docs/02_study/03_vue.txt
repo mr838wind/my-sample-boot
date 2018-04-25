@@ -1,6 +1,31 @@
-case 1: normal pages: not spa
+$$ case 1: normal pages: not spa
 
-1. 
+one way dataflow 
+
+1. components: 
+
+Vue.component('my-component-name', { /* ... */ })
+
+prop
+event
+
+layout: slot
+
+
+pseudo module: 
+	in one file:
+	>> <script type="text/x-template" id="hello-world-template"> ...
+	>> Vue.component('', '')component
+	>> maybe unique css 
+
+
+
+
+
+
+
+
+
 
 
 
