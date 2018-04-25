@@ -20,12 +20,15 @@ pseudo module:
 
 
 >> data fetch
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 
 >> base component support 
 
 
 >> advanced
 	>> use webpack -- find simple configuration
+	https://github.com/vuejs-templates/webpack
 
 
 

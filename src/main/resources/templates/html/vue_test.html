@@ -79,6 +79,18 @@
 						,onCsSayHi: function(title) {
 							alert( 'hi: title=' + title );
 						}
+					},
+					mounted: function(){
+
+						axios.get('/rest/sample/hello')
+						.then(function (response) {
+							console.log(response);
+							console.log('>>> data: ' + response.data);
+						})
+						.catch(function (error) {
+							console.log(error);
+						});
+
 					}
 				});
 				
