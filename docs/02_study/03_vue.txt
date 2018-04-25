@@ -19,6 +19,9 @@ pseudo module:
 	>> maybe unique css 
 
 
+>> data fetch
+
+>> base component support 
 
 
 
