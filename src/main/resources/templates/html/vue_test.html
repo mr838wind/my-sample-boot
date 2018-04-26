@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -18,7 +18,7 @@
 	<div id="app">
 		
 		<template v-if="viewFlag" >
-			{{ message }}
+			{{ message | msgFilter }}
 		</template>
 		<template v-else >
 			No msg.
@@ -47,56 +47,17 @@
 	</div>
 
 	<!-- footer -->
-	<div th:replace="~{html/footer :: copy}" ></div>
+	<div th:replace="~{html/common/fragments :: copy}" ></div>
 
 
 	<!-- scripts -->
-	<div th:replace="~{html/footer :: scripts(~{::script})}" >
+	<div th:replace="~{html/common/fragments :: scripts(~{::script})}" >
 		
 		<!-- component -->
-		<script src="./comp-button-counter.js"></script>
+		<script src="/html/common/comp-button-counter.js" th:src="@{/html/common/comp-button-counter.js}"></script>
 		
 		<!-- app -->
-		<script>
-				// app
-				var app = new Vue({
-					el: '#app',
-					data: {
-						message: 'Hello Vue3  !!!',
-						viewFlag: true,
-						items: [{
-							text: 'pear'
-						}, {
-							text: 'apple'
-						}, {
-							text: 'banana'
-						}]
-					},
-					methods: {
-						sayHello: function(item, index) {
-							alert('hello: ' + index + '--' + item.text);
-						}
-						,onCsSayHi: function(title) {
-							alert( 'hi: title=' + title );
-						}
-					},
-					mounted: function(){
-
-						axios.get('/rest/sample/hello')
-						.then(function (response) {
-							console.log(response);
-							console.log('>>> data: ' + response.data);
-						})
-						.catch(function (error) {
-							console.log(error);
-						});
-
-					}
-				});
-				
-				//test
-				window.app = app;
-		</script>
+		<script src="./vue_test.js"></script>
 
 	</div>
 	

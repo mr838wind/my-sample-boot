@@ -17,6 +17,9 @@
  angular
  -----
  
+>> html and server page location thinking
+
+
  project error code
 
  spring security

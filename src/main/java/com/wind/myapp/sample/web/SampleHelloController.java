@@ -1,5 +1,7 @@
 package com.wind.myapp.sample.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,17 +18,18 @@ public class SampleHelloController {
 
     private static final String template = "Hello, %s! --@RestSampleController";
 
+    //TODO: html and server page location thinking
     /**
      * visit /html/...
      * @param name
      * @param model
      * @return
      */
-    @GetMapping("/html/{pagePath}")
-    public ModelAndView vueTest(@PathVariable(name="pagePath") String pagePath, ModelAndView mv) {
-    	String viewName = "html/" + pagePath;
-    	log.info(">>>> viewName={}", viewName);
-    	mv.setViewName(viewName);
+    @GetMapping("/html/**")
+    public ModelAndView vueTest(HttpServletRequest request, ModelAndView mv) {
+    	String url = request.getRequestURI();
+    	log.info(">>>> url={}", url);
+    	mv.setViewName(url);
     	
     	return mv;
     }
