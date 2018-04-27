@@ -1,0 +1,20 @@
+---------------------------------------------------
+$$ case 2: using sigle file component(.vue)  
+	Webpack with vue-loader
+	
+---------------
+??>> advanced
+	>> use webpack -- find simple configuration
+	https://github.com/vuejs-templates/webpack
+	
+??>> vue ui component support 
+UI Component Libraries
+---------------
+
+----------
+1. npm cli
+
+
+
+
+---------------------------------------------------
