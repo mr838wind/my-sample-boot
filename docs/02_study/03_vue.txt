@@ -1,3 +1,6 @@
+reference:
+https://github.com/vuejs/awesome-vue
+
 $$ case 1: normal pages: not spa
 
 one way dataflow 
@@ -23,16 +26,27 @@ pseudo module:
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
->> base component support 
+---------------------------------------------------
+>> validation framework: vuelidate ....
+
+
+
+
+---------------------------------------------------
+$$ case 2: using webpack  
+
+
+?? vue ui component support 
+UI Component Libraries
 
 
 >> advanced
 	>> use webpack -- find simple configuration
 	https://github.com/vuejs-templates/webpack
+most UI Component Libraries are based on webpack like systems.
+so use single file component is good.
 
-
-
-
+---------------------------------------------------
 
 
 

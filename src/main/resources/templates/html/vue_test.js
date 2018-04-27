@@ -1,4 +1,4 @@
-		
+
 				// app
 				var app = new Vue({
 					el: '#app',
@@ -21,6 +21,11 @@
 							alert( 'hi: title=' + title );
 						}
 					},
+					validations: {
+						viewFlag: {
+							required
+						}
+					},
 					created: function(){
 						
 						var vm = this;
@@ -36,7 +41,7 @@
 							console.log('>>> finally');
 						})
 						;
-
+						
 					}
 				});
 				
