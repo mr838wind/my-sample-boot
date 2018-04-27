@@ -36,15 +36,17 @@ pseudo module:
 $$ case 2: using webpack  
 
 
-?? vue ui component support 
+??>> vue ui component support 
 UI Component Libraries
 
 
->> advanced
+??>> advanced
 	>> use webpack -- find simple configuration
 	https://github.com/vuejs-templates/webpack
 most UI Component Libraries are based on webpack like systems.
 so use single file component is good.
+
+
 
 ---------------------------------------------------
 
