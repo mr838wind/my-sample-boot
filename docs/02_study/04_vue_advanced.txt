@@ -12,9 +12,69 @@ UI Component Libraries
 ---------------
 
 ----------
-1. npm cli
+1. npm cli : js dependencies
+<<package.json>>
+
+npm init
+dependencies
+devDependencies
+
+npm install
+npm install <package_name> --save
+npm install <package_name> --save-dev
+
+npm install -g <package>
+
+npm update
+
+2. Modern JavaScript with ES2015/16
+	Modules
+	Let + Const
+	Arrows and Lexical This---when using callback
+	classes:
+	Template Strings: multiline `line1\r\nline2`
+	Promises
+
+
+	==================================	
+	2.1 module
+	------------- 1
+	module1.js
+	export {member}
+
+	module2.js
+	import * as myModule from "module1"
+	import {member} from "module1"
+
+	------------- 2
+	module1.js
+	export default main
+
+	module2.js
+	import myDefault from "module1"
+	==================================
+
+3. Webpack with vue-loader
+
+>>3.1 simple template
+$ npm install -g vue-cli
+$ vue init webpack-simple my-project
+$ cd my-project
+$ npm install
+$ npm run dev
+
+>>3.2 webpack: static module bundler  
+<<webpack.config.js>>
+Entry, Output, Loaders, Plugins, Mode
 
 
 
+>>3.3 vue-loader
+
+>>3.4 template ...
+
+
+4. vue-cli
+vue init webpack-simple my-project
 
 ---------------------------------------------------
