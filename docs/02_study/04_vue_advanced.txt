@@ -1,13 +1,9 @@
 ---------------------------------------------------
-$$ case 2: using sigle file component(.vue)  
+>> case 2: using sigle file component(.vue)  
 	Webpack with vue-loader
-	
----------------
-??>> advanced
-	>> use webpack -- find simple configuration
-	https://github.com/vuejs-templates/webpack
-	
-??>> vue ui component support 
+
+---------------	
+>> vue ui component support 
 UI Component Libraries
 ---------------
 
@@ -67,14 +63,24 @@ $ npm run dev
 <<webpack.config.js>>
 Entry, Output, Loaders, Plugins, Mode
 
-
-
 >>3.3 vue-loader
+<<.vue >>
 
 >>3.4 template ...
-
+https://github.com/vuejs-templates/webpack
 
 4. vue-cli
 vue init webpack-simple my-project
+vue create ...
+
+
+5. ui library
+import template to eclipse
+
+
+6. integrate with back data
+
+
+
 
 ---------------------------------------------------
