@@ -42,15 +42,14 @@
               <v-card-text>xs10 offset-xs1</v-card-text>
             </v-card>
           </v-flex>
-          <!-- 
-          <v-tooltip right>
-            <v-btn icon large :href="source" target="_blank" slot="activator">
-              <v-icon large>code</v-icon>
-            </v-btn>
-            <span>Source</span>
-          </v-tooltip>
-          -->
-
+          
+          <!--  -->
+          <v-flex xs12>
+            <v-alert type="success" :value="true">
+              This is a success alert.
+            </v-alert>
+          </v-flex>
+         
 
         </v-layout>
       </v-container>
