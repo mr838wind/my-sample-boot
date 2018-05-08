@@ -38,7 +38,7 @@
 
     <!-- footer -->
     <v-footer color="indigo" app>
-      <span class="white--text"> &copy; 2018 wind >> v0.2</span>
+      <span class="white--text"> &copy; 2018 wind >> v0.3</span>
     </v-footer>
   </v-app>
 </template>

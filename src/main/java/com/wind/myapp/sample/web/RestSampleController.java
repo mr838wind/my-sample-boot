@@ -33,5 +33,18 @@ public class RestSampleController {
 	}
 	
 	
+	/**
+	 * paging: 
+	 * param: ?size=1&current=1
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping(value = "/ajax/sample/paging")
+	public Page<SampleVO> paging(ModelAndView mv, Page<SampleVO> page) {
+		
+		Page<SampleVO> pageResult = sampleService.selectPageBySQL(page);
+		
+		return pageResult;
+	}
     
 }
