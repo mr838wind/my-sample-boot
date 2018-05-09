@@ -79,13 +79,12 @@ import template to eclipse
 
 
 6. integrate with back data
-npm run watch
-
 server side data table 
 
+
+change to webpack template: devServer? build? 
+?? npm run watch 
 ?? route
-
-
 
 
 ---------------------------------------------------
