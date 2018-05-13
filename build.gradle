@@ -20,6 +20,13 @@ group = 'com.wind'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+
+processResources {
+	println ' >>> **** my  processResources*****'
+	from 'frontend/config'
+}
+
+
 repositories {
 	mavenCentral()
 }
