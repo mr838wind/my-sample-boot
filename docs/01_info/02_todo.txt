@@ -1,25 +1,11 @@
  ----[doing]---------- 
-  view:
- Thymeleaf ...
-
-
->>jsp mode: to do search 
+ vue.js 
+ 
+ 
+ 
  
  
  ----[todo]---------- 
- view:
- >>jsp mode:
- Thymeleaf ...
- 
- >>ajax mode:  
- Bootstrap ... 
- vue.js 
- angular
- -----
- 
->> html and server page location thinking
-
-
  project error code
 
  spring security
@@ -28,14 +14,18 @@
 
 
 
+
+
  ----[enhancement ]----------
  template 자동생성
  sample logic
- gradle : groovy 
- 
+angular 
  
 
  ----[done]----------
+gradle : groovy 
+jsp mode: to do search 
+ Thymeleaf ...
  custom error page
  refactoring projects >>  controller method location... ,yml(when need)
  dao implementation >> mybatis plus: good

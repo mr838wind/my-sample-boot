@@ -82,9 +82,16 @@ import template to eclipse
 server side data table 
 
 
-change to webpack template: devServer? build? 
-?? npm run watch 
-?? route
+change to webpack template: 
+devServer + build  
+vue-router
+
+seperate: frontend(view) + backend(data)
+
+[todo]7. insert / update --velidate
+
+[todo]8. mobile 
+
 
 
 ---------------------------------------------------
