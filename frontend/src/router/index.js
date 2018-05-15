@@ -9,12 +9,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'MyDataTable',
+      name: 'home',
+      component: HelloWorld
+    },
+    {
+      path: '/my-data-table',
+      name: 'my-data-table',
       component: MyDataTable
     },
     {
       path: '/hello-world',
-      name: 'HelloWorld',
+      name: 'hello-world',
       component: HelloWorld
     }
   ]
