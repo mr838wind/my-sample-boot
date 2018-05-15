@@ -40,9 +40,12 @@
       </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+
+      <!-- right drawer hide -->
+      <v-btn v-if="false" icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>menu</v-icon>
       </v-btn>
+
     </v-toolbar>
     <v-content>
       <router-view/>
@@ -64,7 +67,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
+      <span> &copy; 2017 wind </span>
     </v-footer>
   </v-app>
 </template>
@@ -74,7 +77,7 @@ export default {
   data () {
     return {
       clipped: false,
-      drawer: true,
+      drawer: false,
       fixed: false,
       items: [{
         icon: 'bubble_chart',
