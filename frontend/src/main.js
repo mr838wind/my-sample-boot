@@ -6,7 +6,14 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
+// http
+import axios from 'axios'
+// util
+import _ from 'lodash'
+
 Vue.use(Vuetify)
+Vue.prototype.$axios = axios
+Vue.prototype.$_ = _
 
 Vue.config.productionTip = false
 

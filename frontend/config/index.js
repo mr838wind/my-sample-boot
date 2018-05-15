@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
       // proxy all webpack dev-server requests starting with /api to our Spring Boot backend (localhost:8088)
       '/ajax': {
-        target: 'http://localhost:9010/ajax',
+        target: 'http://localhost:9010',
         changeOrigin: true
       }
     },
@@ -29,7 +29,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
