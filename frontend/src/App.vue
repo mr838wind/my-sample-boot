@@ -14,6 +14,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :to="{path: item.url}"
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -67,7 +68,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span> &copy; 2017 wind </span>
+      <span> &copy; 2018 wind </span>
     </v-footer>
   </v-app>
 </template>
@@ -80,9 +81,19 @@ export default {
       drawer: false,
       fixed: false,
       items: [{
+        icon: 'home',
+        title: 'home',
+        url: '/'
+      },{
         icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
+        title: 'my-data-table',
+        url: '/my-data-table'
+      },{
+        icon: 'dashboard',
+        title: 'hello-world',
+        url: '/hello-world'
+      }
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
