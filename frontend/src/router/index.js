@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import MyContent from '@/components/MyContent'
+import MyDataTable from '@/components/MyDataTable'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'MyContent',
-      component: MyContent
+      name: 'MyDataTable',
+      component: MyDataTable
     },
     {
       path: '/hello-world',
