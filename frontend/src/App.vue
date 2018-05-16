@@ -14,13 +14,13 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
-          :to="{path: item.url}"
+          :to="{path: item.path}"
         >
           <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
+            <v-icon v-html="icons[i%16]"></v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+            <v-list-tile-title v-text="item.name"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -76,24 +76,14 @@
 <script>
 export default {
   data () {
+    //console.log('>>> router from App2: %o', this.$router);
+    
     return {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [{
-        icon: 'home',
-        title: 'home',
-        url: '/'
-      },{
-        icon: 'table_chart',
-        title: 'my-data-table-paging-frontend',
-        url: '/my-data-table-paging-frontend'
-      },{
-        icon: 'table_chart',
-        title: 'my-data-table-paging-backend',
-        url: '/my-data-table-paging-backend'
-      }
-      ],
+      icons: ['home','table_chart','share','whatshot','thumb_up_alt','cake','bubble_chart','domain','group','mood','notifications','pages','people','person','plus_one','poll'],
+      items: this.$router.options.routes,
       miniVariant: false,
       right: true,
       rightDrawer: false,
