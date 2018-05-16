@@ -88,10 +88,11 @@ vue-router
 
 seperate: frontend(view) + backend(data)
 
-[todo]7. insert / update --velidate
+
+[todo]7. insert / update -- validate
+
 
 [todo]8. mobile 
-
 
 
 ---------------------------------------------------
