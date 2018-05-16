@@ -69,6 +69,7 @@
     },
 
     computed: {
+      //== paging
       pagingParam() {
           console.log('pagination = %o', this.pagination);
           const { sortBy, descending, page, rowsPerPage } = this.pagination;
@@ -82,30 +83,28 @@
       }
     },
 
-    mounted() {
-      console.log('>> mounted!! ');
-
-      this.getDataFromApi(response => {
-          this.totalItems = response.data.total;  
-          this.myItems = response.data.records;
-
-          // add watch after component mounted !!
-          //console.log(this.pagingParam); 
-          this.addPagingWatch(); 
-      });
-    },
-
-    methods: {
-        addPagingWatch() {
-          this.$watch('pagingParam', function(newValue, oldValue) {
-              console.log('>> add addPagingWatch');
+    watch: {
+      //== paging
+      pagingParam: {
+        handler(newValue, oldValue) {
+              if (JSON.stringify(newValue) == JSON.stringify(oldValue)) {
+                return;
+              }
+              console.log('>> watching pagingParam !!');
               this.getDataFromApi(response => {
                   this.totalItems = response.data.total;  
                   this.myItems = response.data.records;
               });
-          });
         },
+        deep: false
+      }
+    },
 
+    mounted() {
+      console.log('>> mounted!! ');
+    },
+
+    methods: {
         getDataFromApi(callback) {
           console.log('>> getDataFromApi');
           
