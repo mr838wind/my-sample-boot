@@ -88,11 +88,17 @@ vue-router
 
 seperate: frontend(view) + backend(data)
 
+[todo] paging-backend: multiple loading 
+ 3 --> 2
+ still need debugging
 
-[todo]7. insert / update -- validate
+[todo]7. test
 
 
-[todo]8. mobile 
+[todo]8. insert / update -- validate
+
+
+[todo]9. mobile: cordova  
 
 
 ---------------------------------------------------

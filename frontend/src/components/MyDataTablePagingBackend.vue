@@ -68,43 +68,57 @@
         }
     },
 
-    watch: {
-      pagination: {
-        handler (val,oldVal) {
-          this.getDataFromApi();
-        },
-        deep: true 
-      }
-    },
-    
-
-    mounted() {
-      console.log('>> mounted!! ');
-      this.getDataFromApi();
-    },
-
-    methods: {
-        getDataFromApi() {
-          console.log('>> getDataFromApi');
+    computed: {
+      pagingParam() {
           console.log('pagination = %o', this.pagination);
           const { sortBy, descending, page, rowsPerPage } = this.pagination;
-          
-          this.loading = true; 
 
-          this.$axios.get('/ajax/sample/paging', {
-              params:{
+          return {
                 size: rowsPerPage
                 ,current: page
                 ,orderByField: this.$_.snakeCase(sortBy)
                 ,asc: !descending
-              }
+          }
+      }
+    },
+
+    mounted() {
+      console.log('>> mounted!! ');
+
+      this.getDataFromApi(response => {
+          this.totalItems = response.data.total;  
+          this.myItems = response.data.records;
+
+          // add watch after component mounted !!
+          //console.log(this.pagingParam); 
+          this.addPagingWatch(); 
+      });
+    },
+
+    methods: {
+        addPagingWatch() {
+          this.$watch('pagingParam', function(newValue, oldValue) {
+              console.log('>> add addPagingWatch');
+              this.getDataFromApi(response => {
+                  this.totalItems = response.data.total;  
+                  this.myItems = response.data.records;
+              });
+          });
+        },
+
+        getDataFromApi(callback) {
+          console.log('>> getDataFromApi');
+          
+          this.loading = true; 
+
+          this.$axios.get('/ajax/sample/paging', {
+              params: this.pagingParam
           })
           .then(response => {
               this.loading = false;
-              console.log('>>> %o', response);
+              console.log('>> response= %o', response);
 
-              this.myItems = response.data.records;
-              this.totalItems = response.data.total;  
+              callback(response);
           })
           .catch(e => {
               this.loading = false;
