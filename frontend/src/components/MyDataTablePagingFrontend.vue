@@ -7,7 +7,7 @@
           <v-flex xs10   >
             <v-card class="info" >  
               <v-card-title>
-                <h3 class="display-2 pa-3"  >hello data table. (server side paging.) </h3>
+                <h3 class="display-2 pa-3"  >hello data table. (paging frontend) </h3>
               </v-card-title>
             </v-card>
           </v-flex>
@@ -19,8 +19,6 @@
               <v-data-table
                 :headers="headers"
                 :items="myItems"
-                :pagination.sync="pagination"
-                :total-items="totalItems"
                 :loading="loading"
                 class="elevation-1"
               >
@@ -50,9 +48,7 @@
     
     data() {
         return {
-          totalItems: 0,
           loading: true,
-          pagination: {},
           headers: [
             {
               text: 'Id',
@@ -68,16 +64,6 @@
         }
     },
 
-    watch: {
-      pagination: {
-        handler (val,oldVal) {
-          this.getDataFromApi();
-        },
-        deep: true 
-      }
-    },
-    
-
     mounted() {
       console.log('>> mounted!! ');
       this.getDataFromApi();
@@ -86,25 +72,16 @@
     methods: {
         getDataFromApi() {
           console.log('>> getDataFromApi');
-          console.log('pagination = %o', this.pagination);
-          const { sortBy, descending, page, rowsPerPage } = this.pagination;
           
           this.loading = true; 
 
-          this.$axios.get('/ajax/sample/paging', {
-              params:{
-                size: rowsPerPage
-                ,current: page
-                ,orderByField: this.$_.snakeCase(sortBy)
-                ,asc: !descending
-              }
+          this.$axios.get('/ajax/sample/list', {
           })
           .then(response => {
               this.loading = false;
               console.log('>>> %o', response);
 
-              this.myItems = response.data.records;
-              this.totalItems = response.data.total;  
+              this.myItems = response.data;
           })
           .catch(e => {
               this.loading = false;

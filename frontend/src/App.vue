@@ -85,13 +85,13 @@ export default {
         title: 'home',
         url: '/'
       },{
-        icon: 'bubble_chart',
-        title: 'my-data-table',
-        url: '/my-data-table'
+        icon: 'table_chart',
+        title: 'my-data-table-paging-frontend',
+        url: '/my-data-table-paging-frontend'
       },{
-        icon: 'dashboard',
-        title: 'hello-world',
-        url: '/hello-world'
+        icon: 'table_chart',
+        title: 'my-data-table-paging-backend',
+        url: '/my-data-table-paging-backend'
       }
       ],
       miniVariant: false,

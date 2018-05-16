@@ -29,7 +29,7 @@ public class RestSampleController {
 	 */
 	@RequestMapping(value = "/ajax/sample/list")
 	public List<SampleVO> list() {
-		return sampleService.selectList(null);
+		return sampleService.selectListBySQL();
 	}
 	
 	

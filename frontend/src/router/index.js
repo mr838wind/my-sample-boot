@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import MyDataTable from '@/components/MyDataTable'
+import MyDataTablePagingFrontend from '@/components/MyDataTablePagingFrontend'
+import MyDataTablePagingBackend from '@/components/MyDataTablePagingBackend'
 
 Vue.use(Router)
 
@@ -13,14 +14,14 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/my-data-table',
-      name: 'my-data-table',
-      component: MyDataTable
+      path: '/my-data-table-paging-frontend',
+      name: 'my-data-table-paging-frontend',
+      component: MyDataTablePagingFrontend
     },
     {
-      path: '/hello-world',
-      name: 'hello-world',
-      component: HelloWorld
+      path: '/my-data-table-paging-backend',
+      name: 'my-data-table-paging-backend',
+      component: MyDataTablePagingBackend
     }
   ]
 })
