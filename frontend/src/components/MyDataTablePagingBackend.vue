@@ -73,7 +73,6 @@
       pagingParam() {
           console.log('pagination = %o', this.pagination);
           const { sortBy, descending, page, rowsPerPage } = this.pagination;
-
           return {
                 size: rowsPerPage
                 ,current: page
@@ -87,6 +86,7 @@
       //== paging
       pagingParam: {
         handler(newValue, oldValue) {
+              // fix pagination triggered when totalItems change 
               if (JSON.stringify(newValue) == JSON.stringify(oldValue)) {
                 return;
               }
@@ -105,25 +105,19 @@
     },
 
     methods: {
-        getDataFromApi(callback) {
+        getDataFromApi(callbackSuccess) {
           console.log('>> getDataFromApi');
+
+          this.$AjaxUtils.get(
+            '/ajax/sample/paging', 
+            { params: this.pagingParam }, 
+            callbackSuccess,
+            () => {this.loading = true}, 
+            () => {this.loading = false}
+          );
           
-          this.loading = true; 
-
-          this.$axios.get('/ajax/sample/paging', {
-              params: this.pagingParam
-          })
-          .then(response => {
-              this.loading = false;
-              console.log('>> response= %o', response);
-
-              callback(response);
-          })
-          .catch(e => {
-              this.loading = false;
-              console.log(e);
-          })
         }
+
     }
 
   }

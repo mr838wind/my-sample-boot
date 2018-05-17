@@ -6,14 +6,11 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-// ajax
-import axios from 'axios'
-// util
-import _ from 'lodash'
-
+import _ from 'lodash'  // util  
+import AjaxUtils from './utils/AjaxUtils.js' // custom util 
 
 // global usage:
-Vue.prototype.$axios = axios
+Vue.prototype.$AjaxUtils = AjaxUtils
 Vue.prototype.$_ = _
 
 // vuetify

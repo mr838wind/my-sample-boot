@@ -73,20 +73,14 @@
         getDataFromApi() {
           console.log('>> getDataFromApi');
           
-          this.loading = true; 
+          this.$AjaxUtils.get(
+            '/ajax/sample/list', 
+            {  }, 
+            response => {this.myItems = response.data;},
+            () => {this.loading = true}, 
+            () => {this.loading = false}
+          );
 
-          this.$axios.get('/ajax/sample/list', {
-          })
-          .then(response => {
-              this.loading = false;
-              console.log('>>> %o', response);
-
-              this.myItems = response.data;
-          })
-          .catch(e => {
-              this.loading = false;
-              console.log(e);
-          })
         }
     }
 
