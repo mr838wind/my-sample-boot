@@ -80,11 +80,11 @@ export default {
     
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       icons: ['home','table_chart','share','whatshot','thumb_up_alt','cake','bubble_chart','domain','group','mood','notifications','pages','people','person','plus_one','poll'],
       items: this.$router.options.routes,
-      miniVariant: false,
+      miniVariant: true,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
