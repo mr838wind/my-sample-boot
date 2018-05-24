@@ -1,0 +1,34 @@
+-----------------------------------
+<< init project with project template >>
+
+$ npm install -g vue-cli
+$ vue init vuetifyjs/cordova my-project
+$ cd my-project
+$ npm install
+$ npm run dev
+....
+-----------------------------------
+
+1. package.json: 추가
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "vuelidate": "^0.6.2",
+
+2. main.js
+Vue.prototype.$AjaxUtils = AjaxUtils
+Vue.prototype.$_ = _
+...
+
+3. router/index.js
+
+4. config/index.js
+dev:
+    port: 9011,
+    proxyTable: {
+      // proxy all webpack dev-server requests starting with /api to our Spring Boot backend (localhost:8088)
+      '/ajax': {
+        target: 'http://localhost:9010',
+        changeOrigin: true
+      }
+    },
+    
