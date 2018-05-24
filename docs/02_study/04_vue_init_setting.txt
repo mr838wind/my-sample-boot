@@ -31,4 +31,5 @@ dev:
         changeOrigin: true
       }
     },
-    
+5. App.vue
+router 관련
